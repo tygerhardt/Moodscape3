@@ -6,9 +6,10 @@ export default function Nav(){
         <ul className="nav-links">
             <li><a className="nav-link" href="/">Home</a></li>
             <li><a className="nav-link" href="/journal">Journal</a></li>
+            <li><a className="nav-link" href="/calendar">Calendar</a></li>
             <li><a className="nav-link" href="/mindfulness">Mindfulness Activities</a></li>
             <li><a className="nav-link" href="/reminders">Set Reminders</a></li>
-            <li><a className="nav-link" href="/">Emergency Contact Page</a></li>
+            <li><a className="nav-link" href="/emergencycontact">Emergency Contact Page</a></li>
         </ul>
     </nav>
     )

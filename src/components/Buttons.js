@@ -1,5 +1,4 @@
 import React from "react";
-import "../utils/css/journal.css"
 
 export function Button({name, values, click, children}) {
     return (

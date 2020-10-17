@@ -1,11 +1,12 @@
 import React from 'react';
-import Moment from 'moment';
+import moment from 'moment';
 import '../utils/css/calendar.css';
+import Container from '../components/Container';
 
 export default class extends React.Component {
 	state = {
-		dateContext: Moment(),
-		today: Moment(),
+		dateContext: moment(),
+		today: moment(),
 		showMonthPopup: false,
 		showYearPopup: false,
 		selectedDay: null
@@ -18,9 +19,11 @@ export default class extends React.Component {
 		this.style.width = this.width;
 	}
 
-	weekdays = Moment.weekdays();
-	weekdaysShort = Moment.weekdaysShort();
-	months = Moment.months();
+	//sets the state, current date
+
+	weekdays = moment.weekdays();
+	weekdaysShort = moment.weekdaysShort();
+	months = moment.months();
 
 	year = () => {
 		return this.state.dateContext.format('Y');
@@ -39,16 +42,18 @@ export default class extends React.Component {
 		return parseInt(this.state.dateContext.format('D'));
 	};
 
+	//month setup
+
 	firstDayofMonth = () => {
 		let dateContext = this.state.dateContext;
-		let firstDay = Moment(dateContext).startOf('month').format('d');
+		let firstDay = moment(dateContext).startOf('month').format('d');
 		return firstDay;
 	};
 
 	setMonth = month => {
 		let monthNo = this.months.indexOf(month);
 		let dateContext = Object.assign({}, this.state.dateContext);
-		dateContext = Moment(dateContext).set('month', monthNo);
+		dateContext = moment(dateContext).set('month', monthNo);
 		this.setState({
 			dateContext: dateContext
 		});
@@ -56,7 +61,7 @@ export default class extends React.Component {
 
 	nextMonth = () => {
 		let dateContext = Object.assign({}, this.state.dateContext);
-		dateContext = Moment(dateContext).add(1, 'month');
+		dateContext = moment(dateContext).add(1, 'month');
 		this.setState({
 			dateContext: dateContext
 		});
@@ -65,13 +70,14 @@ export default class extends React.Component {
 
 	prevMonth = () => {
 		let dateContext = Object.assign({}, this.state.dateContext);
-		dateContext = Moment(dateContext).subtract(1, 'month');
+		dateContext = moment(dateContext).subtract(1, 'month');
 		this.setState({
 			dateContext: dateContext
 		});
 		this.props.onPrevMonth && this.props.onMonthChange();
 	};
 
+	// changes the month
 	onSelectChange = (e, data) => {
 		this.setMonth(data);
 		this.props.onMonthChange && this.props.onMonthChange();
@@ -116,6 +122,7 @@ export default class extends React.Component {
 		);
 	};
 
+	// Year 
 	showYearEditor = () => {
 		this.setState({
 			showYearNav: true
@@ -124,25 +131,25 @@ export default class extends React.Component {
 
 	setYear = year => {
 		let dateContext = Object.assign({}, this.state.dateContext);
-		dateContext = Moment(dateContext).set('year', year);
+		dateContext = moment(dateContext).set('year', year);
 		this.setState({
 			dateContext: dateContext
 		});
 	};
 
-	onYearChange = (e) => {
+	onYearChange = e => {
 		this.setYear(e.target.value);
 		this.props.onYearChange && this.props.onYearChange(e, e.target.value);
 	};
 
-	onKeyUpYear = (e) => {
+	onKeyUpYear = e => {
 		if (e.which > 0 || e.which < 2100) {
 			this.setYear(e.target.value);
 			this.setState({
 				showYearNav: false
-					});
-		};
-	}
+			});
+		}
+	};
 	YearNav = () => {
 		return this.state.showYearNav ? (
 			<input
@@ -168,13 +175,15 @@ export default class extends React.Component {
 		);
 	};
 
+	//selects the day
+
 	onDayClick = (e, day) => {
 		this.setState(
 			{
 				selectedDay: day
 			},
 			() => {
-				console.log('SELECTED DAY: ', this.state.selectedDay,this.state.dateContext.format('MMMM'), this.state.dateContext.format("YYYY"));
+				console.log('SELECTED DAY: ', this.state.selectedDay, this.state.dateContext.format('MMMM'), this.state.dateContext.format('YYYY'));
 			}
 		);
 	};
@@ -187,6 +196,8 @@ export default class extends React.Component {
 				</td>
 			);
 		});
+
+		//for empty spots in the calendar
 
 		let blanks = [];
 		for (let i = 0; i < this.firstDayofMonth(); i++) {
@@ -246,6 +257,7 @@ export default class extends React.Component {
 		});
 
 		return (
+			<Container>
 			<div className="calendar-container" style={this.style}>
 				<table className="calendar">
 					<thead>
@@ -275,6 +287,7 @@ export default class extends React.Component {
 					</tbody>
 				</table>
 			</div>
+			</Container>
 		);
+	}
 }
-};

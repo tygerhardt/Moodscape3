@@ -1,12 +1,12 @@
 import React from "react";
 import "../utils/css/login.css";
 import "../utils/css/style.css";
-import { Container } from "../components/Grid"
+import { Body } from "../components/Background";
 
 function Login(){
 
     return (
-    <Container>
+    <Body>
         <div className="form-container sign-up-container">
             <form action="#">
                 <h1>Create Account</h1>
@@ -15,7 +15,7 @@ function Login(){
                 <input type="text" placeholder="Preferred Pronouns"/>
                 <input type="email" placeholder="Email" />
                 <input type="password" placeholder="Password" />
-                <button>Sign Up</button>
+                <button className="log-button">Sign Up</button>
             </form>
         </div>
         <div className="form-container sign-in-container">
@@ -40,7 +40,7 @@ function Login(){
                 </div>
             </div>
         </div>
-    </Container>
+    </Body>
     )
 }
 

@@ -1,5 +1,4 @@
 import React from "react";
-import "../utils/css/journal.css"
 
 export function Paper({pColor, lColor, children}){
     if (pColor !== null){

@@ -1,12 +1,13 @@
-
 import React from "react";
 import "../utils/css/mindfulness.css";
-import { Container } from "../components/Grid"
+import { Body } from "../components/Background";
+import Container from "../components/Container";
 
 function Mindfulness(){
 
     return (
     <Container>
+    <Body>
         <div>
         <div class="activities">
         <h1>Mindfullness Activities & Resources</h1>
@@ -41,6 +42,7 @@ function Mindfulness(){
         </ul>
     </div>
     </div>
+    </Body>
     </Container>
     )
 }

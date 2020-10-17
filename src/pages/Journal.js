@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
 import '../utils/css/journal.css'
 import '../utils/js/journalScript.js'
-import { Container } from '../components/Grid'
 import { NewButton, Button, Img } from '../components/Buttons'
-import { Br } from '../components/Br'
 import { BtnColumn, BtnRow } from '../components/InputHolders';
 import { Emote, Paper, Lines } from '../components/JournalPage';
 import SubmitBtn from '../components/SubmitBtn'
+import { Body } from '../components/Background';
 
 function Journal() {
     const lineC = localStorage.getItem('line')
@@ -77,21 +76,17 @@ function Journal() {
     }
   
     return (
-      <Container>
+      <Body>
         <SubmitBtn values={{
           content: journalPage,
           mood: emotion
         }} click={sendInfo}></SubmitBtn>
         <BtnColumn lColor={lineColor}>
-          <Br></Br>
           <Button values='silver' name='btn lineButton silver' click={changePage}></Button>
-          <Br></Br>
           <Button values='gold' name='btn lineButton gold' click={changePage}></Button>
           <p>Line Color</p>
           <Button values='purple' name='btn colButton purple' click={changePage}></Button>
-          <Br></Br>
           <Button values='red' name='btn colButton red' click={changePage}></Button>
-          <Br></Br>
           <Button values='blue' name='btn colButton blue' click={changePage}></Button>
          <p>Paper Color</p>
          </BtnColumn>
@@ -151,7 +146,7 @@ function Journal() {
   
   <script src='https://code.jquery.com/jquery-3.5.1.min.js'></script>
   <script type='text/javascript' src='./utils/js/journalScript.js'></script>
-  </Container>
+  </Body>
   )
 }
 

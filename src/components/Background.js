@@ -1,5 +1,4 @@
 import React from "react";
-import "../utils/css/login.css";
 import Beclipse from "../utils/img/big-eclipse.svg"
 import Meclipse from "../utils/img/mid-eclipse.svg"
 import Seclipse from "../utils/img/small-eclipse.svg"

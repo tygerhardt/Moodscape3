@@ -2,20 +2,20 @@ import React from "react";
 import "../utils/css/style.css";
 import "../utils/css/reminders.css";
 import { addElement } from "../utils/js/remindersScript.js"
-import { Container } from "../components/Grid"
+import { Body } from "../components/Background";
 
 function Reminders(){
 
     return (
-        <Container>
-        <div class="container">
-            <input type="text" class="addTxt" placeholder="Today's Goals . . ."/>
-            <button class="addBtn" onclick={addElement()}>
+        <Body>
+        <div className="container">
+            <input type="text" className="addTxt" placeholder="Today's Goals . . ."/>
+            <button className="addBtn" onClick={() => {addElement()}}>
                 <img src="https://picaflor-azul.com/images/plus-circle1.png"/>
             </button>
-            <div class="list"></div>
+            <div className="list"></div>
         </div>
-        </Container>
+        </Body>
     )
 }
 

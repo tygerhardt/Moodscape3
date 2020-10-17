@@ -1,5 +1,4 @@
 import React from "react";
-import "../utils/css/login.css";
 
 export function Intro(){
     return (

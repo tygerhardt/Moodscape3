@@ -1,7 +1,7 @@
 import React from "react";
 import Nav from "./Nav";
+import "../utils/css/style.css";
 import { LoginButton } from "./Header-components"
-import "../utils/css/style.css"
 
 export default function Header(){
     return (

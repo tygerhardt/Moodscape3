@@ -14,7 +14,6 @@ body {
     font-size: 50px;
     font-weight: bolder;
     color: grey;
-    /* opacity: 0; */
     position: fixed;
     bottom: 50%;
     display: flex;
@@ -37,7 +36,7 @@ img:hover {
     opacity: 50%;
 }
 
-.btnSil {
+.btnSilver {
     background-image: radial-gradient(#eaeaea, #eaeaea, #c0c0c0);
     border: 1px solid #c0c0c0;
 }
@@ -119,9 +118,8 @@ img:hover {
     height: 11in;
     position: relative;
     left: 50%;
-    margin-top: 50px;
-    margin-bottom: 50px;
-    transform: translate(-50%);
+    top: 50%;
+    transform: translate(-50%,25%);
 }
 
 .line-gold {
@@ -166,13 +164,12 @@ img:hover {
 }
 
 .newButton {
-    /* border: 2px solid grey; */
     border: none;
     border-radius: 50%;
     background: transparent;
     display: flex;
-    width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 30px;
     cursor: pointer;
     font-family: 'Poppins', sans-serif;
     font-size: 16px;
@@ -237,5 +234,5 @@ img:hover {
 }
 
 .cry {
-    width: 45px;
+    width: 35px;
 }
